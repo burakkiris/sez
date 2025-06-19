@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sezin 💖</title>
+  <style>
+    body {
+      background: #ffe6f0;
+      text-align: center;
+      font-family: sans-serif;
+      margin-top: 100px;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    p {
+      font-size: 24px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sezin 💖</h1>
+  <p>Benimle sevgili olur musun?</p>
+  <button id="yesBtn" onmouseover="moveButton(this)">Sevgili Olalım 💍</button>
+  <button id="flowBtn" onclick="stepTwo()">Akışa Bırak 🌈</button>
+
+  <div id="secondStep" style="display:none;">
+    <p>Sen kaybedersin! Emin misin? 🤭</p>
+    <button id="sureBtn" onmouseover="moveButton(this)">Evet Eminim 😏</button>
+    <button id="notSureBtn" onclick="finalStep()">Değilim 🙈</button>
+  </div>
+
+  <div id="finalStep" style="display:none;">
+    <h1>Sen bu dünyadaki en tatlı şeysin güzelim! 🥰💖</h1>
+  </div>
+
+  <script>
+    function moveButton(btn) {
+      const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+      btn.style.position = "absolute";
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+
+    function stepTwo() {
+      document.getElementById("yesBtn").style.display = "none";
+      document.getElementById("flowBtn").style.display = "none";
+      document.getElementById("secondStep").style.display = "block";
+    }
+
+    function finalStep() {
+      document.getElementById("secondStep").style.display = "none";
+      document.getElementById("finalStep").style.display = "block";
+    }
+  </script>
+</body>
+</html>
